@@ -17,6 +17,9 @@
       align-items: center;
       padding: 12px 20px;
       background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     header img {
       height: 40px;
@@ -94,11 +97,48 @@
       margin: 0 0 8px;
       font-size: 18px;
     }
+    .faq details {
+      background: #111;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .faq summary {
+      font-weight: bold;
+      color: #f5b400;
+      cursor: pointer;
+    }
+    .testimonials .card {
+      border-left: 4px solid #f5b400;
+    }
     footer {
       background: #111;
       text-align: center;
       padding: 20px;
       margin-top: 20px;
+    }
+    /* Sticky bottom button */
+    .sticky-btn {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f5b400;
+      color: #000;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      z-index: 20;
+      box-shadow: 0px 0px 12px rgba(245, 180, 0, 0.7);
+    }
+    /* Countdown */
+    #timer {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff4444;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -113,17 +153,16 @@
       </div>
     </div>
     <nav>
-      <a href="#">How it works</a>
-      <a href="#">Why us</a>
-      <a href="#">Proof</a>
-      <a href="#">FAQ</a>
+      <a href="#why">Why us</a>
+      <a href="#proof">Proof</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </header>
 
   <!-- Hero -->
   <div class="hero">
     <div style="background:#f5b400;color:#000;display:inline-block;padding:6px 14px;border-radius:20px;font-weight:bold;">
-      LAUNCH OFFER • LIMITED
+      LAUNCH OFFER • 90% DISCOUNT
     </div>
     <h1>Turn your unused internet data into daily cash</h1>
     <p>Run our secure app in the background and earn instantly. No extra effort — just set it and forget it. Instant payouts to your bank/UPI.</p>
@@ -139,12 +178,13 @@
       <button class="btn btn-secondary">How it works</button>
     </div>
     <div class="price">
-      Was ₹1499 • Now only ₹149
+      <strike>₹1499</strike> • Now only ₹149  
+      <div id="timer">Offer ends in 2:00:00</div>
     </div>
   </div>
 
   <!-- Why choose section -->
-  <section>
+  <section id="why">
     <h2>Why choose Net2Cash?</h2>
     <div class="card">
       <h3>🔒 Secure & Private</h3>
@@ -155,14 +195,75 @@
       <p>Install once, run in background — get paid daily/weekly with low minimum payout.</p>
     </div>
     <div class="card">
-      <h3>💸 Instant Withdrawals</h3>
-      <p>Withdraw directly to UPI or Bank. Transparent dashboard and transaction history.</p>
+      <h3>💸 Stable Payouts</h3>
+      <p>Guaranteed instant withdrawals to UPI/Bank. 100% trusted by thousands of users.</p>
     </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What our users say</h2>
+    <div class="card">
+      <p>"I earned my first ₹500 in just 3 days. Super easy!" – Ramesh, Delhi</p>
+    </div>
+    <div class="card">
+      <p>"Best side income app, payouts are real and instant." – Sneha, Mumbai</p>
+    </div>
+    <div class="card">
+      <p>"I thought it was fake but I’m getting daily earnings now." – Arjun, Bangalore</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>FAQ</h2>
+    <details>
+      <summary>How do I get paid?</summary>
+      <p>You can withdraw earnings instantly to UPI or Bank.</p>
+    </details>
+    <details>
+      <summary>Do you use my personal data?</summary>
+      <p>No. We only route unused bandwidth securely. Personal files and browsing remain private.</p>
+    </details>
+    <details>
+      <summary>What is the minimum payout?</summary>
+      <p>You can withdraw with as little as ₹50 in your wallet.</p>
+    </details>
   </section>
 
   <!-- Footer -->
   <footer>
     <button class="btn btn-primary">💳 Pay ₹149 & Download App →</button>
   </footer>
+
+  <!-- Sticky button -->
+  <a href="#" class="sticky-btn">💳 Pay ₹149 & Download Instantly</a>
+
+  <!-- Countdown Timer Script -->
+  <script>
+    function startTimer(duration, display) {
+      let timer = duration, hours, minutes, seconds;
+      setInterval(function () {
+        hours = parseInt(timer / 3600, 10);
+        minutes = parseInt((timer % 3600) / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = "Offer ends in " + hours + ":" + minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration; // reset every 2hrs
+        }
+      }, 1000);
+    }
+    window.onload = function () {
+      const twoHours = 60 * 60 * 2; // 2 hours in seconds
+      const display = document.querySelector('#timer');
+      startTimer(twoHours, display);
+    };
+  </script>
 </body>
 </html>
