@@ -1,169 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Net2Cash • Turn Your Data Into Money</title>
-  <meta name="description" content="Turn unused internet data into passive income — safe, secure and instant payouts." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net2Cash - Turn Data into Instant Payouts</title>
   <style>
-    /* ===== Reset & base ===== */
-    * { box-sizing: border-box; }
-    html,body { margin:0; padding:0; height:100%; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: #070707; color:#eee; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-    a { color:inherit; text-decoration:none; }
-    img { max-width:100%; display:block; }
-
-    /* ===== page layout ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
     header {
-      position:sticky; top:0; z-index:40;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 20px; background:linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.4));
-      border-bottom: 1px solid rgba(255,255,255,0.03);
-      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: #111;
     }
-    .brand { display:flex; align-items:center; gap:12px; }
-    .logo { width:44px; height:44px; border-radius:10px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.6); background:#111; display:flex; align-items:center; justify-content:center; }
-    .brand h1 { margin:0; font-size:16px; letter-spacing:0.4px; color:#fff; font-weight:700; }
-    nav { display:flex; gap:14px; align-items:center; }
-    nav a { font-weight:600; padding:8px 12px; border-radius:10px; color: #fff; opacity:0.9; font-size:14px; }
-    nav a:hover { background: rgba(255,215,0,0.07); box-shadow: 0 6px 16px rgba(255,215,0,0.03); color:#ffd36b; }
-
-    /* ===== Hero ===== */
+    header img {
+      height: 40px;
+      border-radius: 50%;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+    }
     .hero {
-      padding:48px 18px 64px;
-      text-align:center;
-      background: linear-gradient(180deg,#080808 0%, #0e0e0e 65%);
+      text-align: center;
+      padding: 40px 20px;
     }
-    .hero-inner { max-width:960px; margin:0 auto; }
-    .tag { display:inline-block; background:linear-gradient(90deg,#ffd36b,#f1b028); color:#121212; font-weight:700; padding:8px 14px; border-radius:999px; box-shadow: 0 6px 28px rgba(241,176,40,0.18); margin-bottom:18px; }
-    h2.title { margin:12px 0 8px; font-size:36px; line-height:1.03; color:#fff; text-shadow: 0 10px 40px rgba(0,0,0,0.6); }
-    p.lead { color:#dcd7d3; margin-bottom:18px; font-size:16px; max-width:760px; margin-left:auto; margin-right:auto; }
-
-    .hero-grid {
-      display:grid; grid-template-columns: 1fr; gap:18px; align-items:center; margin-top:22px;
+    .hero h1 {
+      font-size: 24px;
+      margin: 20px 0 10px;
     }
-    .cover { border-radius:16px; overflow:hidden; max-width:420px; margin:12px auto; box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 10px 30px rgba(255,215,0,0.06); border:1px solid rgba(255,255,255,0.03); }
-
-    .cta-row { display:flex; gap:12px; justify-content:center; margin-top:18px; flex-wrap:wrap; }
+    .hero p {
+      font-size: 16px;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+    .cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 12px;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
     .btn-primary {
-      background: linear-gradient(90deg,#ffd36b,#f1b028);
-      color:#0b0b0b; padding:14px 22px; font-weight:800; border-radius:12px; box-shadow: 0 30px 60px rgba(241,176,40,0.12);
-      transition: transform .12s ease, box-shadow .12s ease;
+      background: #f5b400;
+      color: #000;
     }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 40px 90px rgba(241,176,40,0.18); }
-
-    .btn-outline { padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#fff; font-weight:700; }
-    .btn-outline:hover { color:#ffd36b; border-color: rgba(255,211,107,0.35); }
-
-    .price-row { margin-top:12px; font-weight:800; color:#ffd36b; font-size:20px; }
-
-    /* ===== sticky floating CTA ===== */
-    .floating-cta {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index:99;
-      display:flex; gap:12px; align-items:center;
-      background: linear-gradient(90deg,#ffd36b,#f1b028);
-      color:#081012; padding:12px 18px; border-radius:999px; box-shadow: 0 18px 60px rgba(241,176,40,0.25);
-      font-weight:800;
-      transform:translateY(0);
+    .btn-secondary {
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
     }
-    .floating-cta .money { font-size:14px; color:#081012; margin-right:10px; }
-    .floating-cta a { color:inherit; font-weight:800; }
-
-    /* small mobile adjust */
-    @media (max-width:520px) {
-      h2.title { font-size:30px; }
-      .floating-cta { right:12px; left:12px; justify-content:center; }
+    .price {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #f5b400;
     }
-
-    /* ===== sections ===== */
-    .container { max-width:1100px; margin:0 auto; padding:36px 18px; }
-    .grid-3 { display:grid; grid-template-columns: 1fr; gap:18px; }
-    @media(min-width:820px){ .grid-3 { grid-template-columns: repeat(3, 1fr); } }
-
-    .card {
-      background: linear-gradient(180deg,#0f0f0f,#0b0b0b);
-      border-radius:14px; padding:18px; border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.6), inset 0 0 40px rgba(255,211,107,0.01);
+    section {
+      padding: 30px 20px;
     }
-    .card h3{ margin:6px 0 8px; color:#ffd36b; font-size:18px; }
-    .card p{ color:#dcd7d3; margin:0; font-size:14px; }
-
-    /* ===== how it works ===== */
-    .steps { display:grid; gap:18px; }
-    @media(min-width:820px){ .steps { grid-template-columns: repeat(3,1fr); } }
-    .step { background: linear-gradient(180deg,#0e0e0e,#0b0b0b); border-radius:12px; padding:18px; text-align:center; border:1px solid rgba(255,255,255,0.03); }
-    .step .num { font-size:20px; font-weight:800; color:#fff; background:#111; padding:10px 14px; border-radius:12px; display:inline-block; margin-bottom:12px; }
-    .step h4 { color:#ffd36b; margin:8px 0; }
-    .step p { color:#dcd7d3; font-size:14px; }
-
-    /* ===== testimonials ===== */
-    .testimonials { display:grid; gap:16px; }
-    @media(min-width:820px){ .testimonials { grid-template-columns: repeat(3,1fr); } }
-    .test { padding:18px; border-radius:12px; background: linear-gradient(180deg,#0f0f0f,#0b0b0b); border:1px solid rgba(255,255,255,0.04); color:#e6e0da; font-style:italic; }
-    .stars { color:#ffd36b; margin:10px 0; text-align:center; font-weight:800; }
-
-    /* ===== FAQ ===== */
-    .faq { max-width:980px; margin:0 auto; }
-    details { background:linear-gradient(180deg,#0f0f0f,#0b0b0b); margin:12px 0; padding:12px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); color:#e9e6e2; }
-    summary { cursor:pointer; font-weight:700; color:#ffd36b; }
-
-    /* ===== footer ===== */
-    footer { padding:36px 20px; text-align:center; color:#bdb6b0; font-size:14px; border-top:1px solid rgba(255,255,255,0.02); margin-top:24px; }
-
-    /* utility */
-    .muted { color:#cfcac6; opacity:0.9; font-size:13px; }
-    .center { text-align:center; }
+    section h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #f5b400;
+    }
+    section .card {
+      background: #111;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+    }
+    section .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-
   <!-- Header -->
   <header>
-    <div class="brand">
-      <div class="logo">
-        <!-- optional logo.png — replace with your file -->
-        <img src="logo.png" alt="Net2Cash logo" style="width:100%; height:100%; object-fit:cover;">
-      </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="logo.png" alt="Net2Cash Logo">
       <div>
-        <h1>Net2Cash</h1>
-        <div class="muted" style="font-size:12px; margin-top:3px;">Turn data into instant payouts</div>
+        <strong>Net2Cash</strong><br>
+        <small>Turn data into instant payouts</small>
       </div>
     </div>
-
     <nav>
-      <a href="#how">How it works</a>
-      <a href="#features">Why us</a>
-      <a href="#testimonials">Proof</a>
-      <a href="#faq">FAQ</a>
+      <a href="#">How it works</a>
+      <a href="#">Why us</a>
+      <a href="#">Proof</a>
+      <a href="#">FAQ</a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <span class="tag">LAUNCH OFFER • LIMITED</span>
-      <h2 class="title">Turn your unused internet data into daily cash</h2>
-      <p class="lead">Run our secure app in the background and earn instantly. No extra effort — just set it and forget it. Instant payouts to your bank/UPI.</p>
+  <!-- Hero -->
+  <div class="hero">
+    <div style="background:#f5b400;color:#000;display:inline-block;padding:6px 14px;border-radius:20px;font-weight:bold;">
+      LAUNCH OFFER • LIMITED
+    </div>
+    <h1>Turn your unused internet data into daily cash</h1>
+    <p>Run our secure app in the background and earn instantly. No extra effort — just set it and forget it. Instant payouts to your bank/UPI.</p>
+    
+    <!-- Cover Image -->
+    <div class="cover">
+      <img src="cover.jpg" alt="Net2Cash app preview">
+    </div>
 
-      <div class="hero-grid">
-        <div class="cover">
-          <!-- Updated cover file name -->
-          <img src="net2cash-cover.png" alt="Net2Cash app preview" style="display:block; width:100%; height:auto;">
-        </div>
+    <!-- Buttons -->
+    <div class="button-group">
+      <button class="btn btn-primary">Pay ₹149 & Download</button>
+      <button class="btn btn-secondary">How it works</button>
+    </div>
+    <div class="price">
+      Was ₹1499 • Now only ₹149
+    </div>
+  </div>
 
-        <div class="center">
-          <div class="cta-row">
-            <a class="btn-primary" href="#pay">Pay ₹149 &amp; Download</a>
-            <a class="btn-outline" href="#how">How it works</a>
-          </div>
-          <div class="price-row">Was ₹1499 • Now only <span style="color:#fff">₹149</span></div>
-        </div>
-      </div>
+  <!-- Why choose section -->
+  <section>
+    <h2>Why choose Net2Cash?</h2>
+    <div class="card">
+      <h3>🔒 Secure & Private</h3>
+      <p>We never access your personal content. App only routes unused bandwidth securely and pays you for it.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Automatic Earnings</h3>
+      <p>Install once, run in background — get paid daily/weekly with low minimum payout.</p>
+    </div>
+    <div class="card">
+      <h3>💸 Instant Withdrawals</h3>
+      <p>Withdraw directly to UPI or Bank. Transparent dashboard and transaction history.</p>
     </div>
   </section>
-  
-  <!-- rest of page remains unchanged... -->
+
+  <!-- Footer -->
+  <footer>
+    <button class="btn btn-primary">💳 Pay ₹149 & Download App →</button>
+  </footer>
 </body>
 </html>
