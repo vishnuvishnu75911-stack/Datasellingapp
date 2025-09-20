@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Net2Cash • Turn Your Data Into Money</title>
+  <meta name="description" content="Turn unused internet data into passive income — safe, secure and instant payouts." />
+  <style>
+    /* ===== Reset & base ===== */
+    * { box-sizing: border-box; }
+    html,body { margin:0; padding:0; height:100%; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: #070707; color:#eee; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; display:block; }
+
+    /* ===== page layout ===== */
+    header {
+      position:sticky; top:0; z-index:40;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px; background:linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.4));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+    }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .logo { width:44px; height:44px; border-radius:10px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.6); background:#111; display:flex; align-items:center; justify-content:center; }
+    .brand h1 { margin:0; font-size:16px; letter-spacing:0.4px; color:#fff; font-weight:700; }
+    nav { display:flex; gap:14px; align-items:center; }
+    nav a { font-weight:600; padding:8px 12px; border-radius:10px; color: #fff; opacity:0.9; font-size:14px; }
+    nav a:hover { background: rgba(255,215,0,0.07); box-shadow: 0 6px 16px rgba(255,215,0,0.03); color:#ffd36b; }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding:48px 18px 64px;
+      text-align:center;
+      background: linear-gradient(180deg,#080808 0%, #0e0e0e 65%);
+    }
+    .hero-inner { max-width:960px; margin:0 auto; }
+    .tag { display:inline-block; background:linear-gradient(90deg,#ffd36b,#f1b028); color:#121212; font-weight:700; padding:8px 14px; border-radius:999px; box-shadow: 0 6px 28px rgba(241,176,40,0.18); margin-bottom:18px; }
+    h2.title { margin:12px 0 8px; font-size:36px; line-height:1.03; color:#fff; text-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+    p.lead { color:#dcd7d3; margin-bottom:18px; font-size:16px; max-width:760px; margin-left:auto; margin-right:auto; }
+
+    .hero-grid {
+      display:grid; grid-template-columns: 1fr; gap:18px; align-items:center; margin-top:22px;
+    }
+    .cover { border-radius:16px; overflow:hidden; max-width:420px; margin:12px auto; box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 10px 30px rgba(255,215,0,0.06); border:1px solid rgba(255,255,255,0.03); }
+
+    .cta-row { display:flex; gap:12px; justify-content:center; margin-top:18px; flex-wrap:wrap; }
+    .btn-primary {
+      background: linear-gradient(90deg,#ffd36b,#f1b028);
+      color:#0b0b0b; padding:14px 22px; font-weight:800; border-radius:12px; box-shadow: 0 30px 60px rgba(241,176,40,0.12);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 40px 90px rgba(241,176,40,0.18); }
+
+    .btn-outline { padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#fff; font-weight:700; }
+    .btn-outline:hover { color:#ffd36b; border-color: rgba(255,211,107,0.35); }
+
+    .price-row { margin-top:12px; font-weight:800; color:#ffd36b; font-size:20px; }
+
+    /* ===== sticky floating CTA ===== */
+    .floating-cta {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index:99;
+      display:flex; gap:12px; align-items:center;
+      background: linear-gradient(90deg,#ffd36b,#f1b028);
+      color:#081012; padding:12px 18px; border-radius:999px; box-shadow: 0 18px 60px rgba(241,176,40,0.25);
+      font-weight:800;
+      transform:translateY(0);
+    }
+    .floating-cta .money { font-size:14px; color:#081012; margin-right:10px; }
+    .floating-cta a { color:inherit; font-weight:800; }
+
+    /* small mobile adjust */
+    @media (max-width:520px) {
+      h2.title { font-size:30px; }
+      .floating-cta { right:12px; left:12px; justify-content:center; }
+    }
+
+    /* ===== sections ===== */
+    .container { max-width:1100px; margin:0 auto; padding:36px 18px; }
+    .grid-3 { display:grid; grid-template-columns: 1fr; gap:18px; }
+    @media(min-width:820px){ .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+    .card {
+      background: linear-gradient(180deg,#0f0f0f,#0b0b0b);
+      border-radius:14px; padding:18px; border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6), inset 0 0 40px rgba(255,211,107,0.01);
+    }
+    .card h3{ margin:6px 0 8px; color:#ffd36b; font-size:18px; }
+    .card p{ color:#dcd7d3; margin:0; font-size:14px; }
+
+    /* ===== how it works ===== */
+    .steps { display:grid; gap:18px; }
+    @media(min-width:820px){ .steps { grid-template-columns: repeat(3,1fr); } }
+    .step { background: linear-gradient(180deg,#0e0e0e,#0b0b0b); border-radius:12px; padding:18px; text-align:center; border:1px solid rgba(255,255,255,0.03); }
+    .step .num { font-size:20px; font-weight:800; color:#fff; background:#111; padding:10px 14px; border-radius:12px; display:inline-block; margin-bottom:12px; }
+    .step h4 { color:#ffd36b; margin:8px 0; }
+    .step p { color:#dcd7d3; font-size:14px; }
+
+    /* ===== testimonials ===== */
+    .testimonials { display:grid; gap:16px; }
+    @media(min-width:820px){ .testimonials { grid-template-columns: repeat(3,1fr); } }
+    .test { padding:18px; border-radius:12px; background: linear-gradient(180deg,#0f0f0f,#0b0b0b); border:1px solid rgba(255,255,255,0.04); color:#e6e0da; font-style:italic; }
+    .stars { color:#ffd36b; margin:10px 0; text-align:center; font-weight:800; }
+
+    /* ===== FAQ ===== */
+    .faq { max-width:980px; margin:0 auto; }
+    details { background:linear-gradient(180deg,#0f0f0f,#0b0b0b); margin:12px 0; padding:12px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); color:#e9e6e2; }
+    summary { cursor:pointer; font-weight:700; color:#ffd36b; }
+
+    /* ===== footer ===== */
+    footer { padding:36px 20px; text-align:center; color:#bdb6b0; font-size:14px; border-top:1px solid rgba(255,255,255,0.02); margin-top:24px; }
+
+    /* utility */
+    .muted { color:#cfcac6; opacity:0.9; font-size:13px; }
+    .center { text-align:center; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="logo">
+        <!-- optional logo.png — replace with your file -->
+        <img src="logo.png" alt="Net2Cash logo" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div>
+        <h1>Net2Cash</h1>
+        <div class="muted" style="font-size:12px; margin-top:3px;">Turn data into instant payouts</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#features">Why us</a>
+      <a href="#testimonials">Proof</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <span class="tag">LAUNCH OFFER • LIMITED</span>
+      <h2 class="title">Turn your unused internet data into daily cash</h2>
+      <p class="lead">Run our secure app in the background and earn instantly. No extra effort — just set it and forget it. Instant payouts to your bank/UPI.</p>
+
+      <div class="hero-grid">
+        <div class="cover">
+          <!-- Replace cover.jpg with your cover image -->
+          <img src="cover.jpg" alt="Net2Cash app preview" style="display:block; width:100%; height:auto;">
+        </div>
+
+        <div class="center">
+          <div class="cta-row">
+            <!-- Replace #pay with your payment / purchase flow link -->
+            <a class="btn-primary" href="#pay">Pay ₹149 &amp; Download</a>
+            <a class="btn-outline" href="#how">How it works</a>
+          </div>
+          <div class="price-row">Was ₹1499 • Now only <span style="color:#fff">₹149</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="container">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <h3 style="margin:0; color:#ffd36b;">Why choose Net2Cash?</h3>
+      <div class="muted">100% safe • Passive income • Instant payouts</div>
+    </div>
+
+    <div class="grid-3" style="margin-top:18px;">
+      <div class="card">
+        <h3>Secure & Private</h3>
+        <p>We never access your personal content. App only routes unused bandwidth securely and pays you for it.</p>
+      </div>
+
+      <div class="card">
+        <h3>Automatic Earnings</h3>
+        <p>Install once, run in background — get paid daily/weekly with low minimum payout.</p>
+      </div>
+
+      <div class="card">
+        <h3>Instant Withdrawals</h3>
+        <p>Withdraw directly to UPI or Bank. Transparent dashboard and transaction history.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="container">
+    <h3 style="color:#ffd36b; text-align:center; margin-bottom:18px;">How it works (3 easy steps)</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Download the App</h4>
+        <p>Install from the link — quick setup and account creation takes <strong>under 90 seconds</strong>.</p>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Share Unused Data</h4>
+        <p>Allow the app to share unused internet bandwidth securely. Your privacy is preserved — we don't access files or personal info.</p>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Earn & Withdraw</h4>
+        <p>Watch your balance grow. Withdraw instantly via UPI or bank transfer once you hit the minimum payout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / PROOF -->
+  <section id="testimonials" class="container">
+    <h3 style="color:#ffd36b; text-align:center; margin-bottom:18px;">Real people, real payouts</h3>
+    <div class="testimonials">
+      <div class="test">
+        "I couldn't believe it — earned my first ₹300 in 2 days. The app runs quietly and pays fast."  
+        <div class="stars">★★★★★</div>
+        <div style="text-align:right; font-weight:700; color:#ffd36b;">— Sanya R.</div>
+      </div>
+
+      <div class="test">
+        "Simple, effective and safe. Withdrawals to UPI were instant — no fuss."  
+        <div class="stars">★★★★★</div>
+        <div style="text-align:right; font-weight:700; color:#ffd36b;">— Rahul V.</div>
+      </div>
+
+      <div class="test">
+        "Passive income while I study — saved me money on groceries. Highly recommended."  
+        <div class="stars">★★★★★</div>
+        <div style="text-align:right; font-weight:700; color:#ffd36b;">— Meera K.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD / FEATURES + PROMO -->
+  <section class="container" style="margin-top:6px;">
+    <div style="display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+      <div style="flex:1; min-width:260px;">
+        <h3 style="margin:0; color:#ffd36b;">What you'll get</h3>
+        <ul style="color:#ddd; margin-top:12px; line-height:1.8;">
+          <li>Simple setup & one-tap activation</li>
+          <li>Transparent earnings dashboard</li>
+          <li>Secure payout options (UPI/Bank)</li>
+          <li>24/7 support & quick disputes handling</li>
+        </ul>
+      </div>
+
+      <div style="min-width:220px; text-align:center;">
+        <div style="background: linear-gradient(180deg,#0b0b0b,#0f0f0f); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+          <div style="font-size:14px; color:#ffd36b; font-weight:800;">Limited Launch Price</div>
+          <div style="font-size:26px; color:#fff; font-weight:900; margin:8px 0;">₹149</div>
+          <a href="#pay" class="btn-primary" style="display:inline-block; margin-top:8px;">Pay & Download</a>
+          <div class="muted" style="margin-top:8px; font-size:13px;">Secure payment • Instant link after purchase</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="container">
+    <h3 style="color:#ffd36b; text-align:center;">Frequently asked questions</h3>
+    <div class="faq" style="margin-top:14px;">
+      <details><summary>Is using the app safe?</summary>
+        <p>Yes. The app only uses unused data bandwidth and does not access your personal files. We use encryption and strict privacy controls.</p>
+      </details>
+
+      <details><summary>How much can I earn?</summary>
+        <p>It depends on device uptime and the demand in your area. Most users earn a small but consistent daily income — check the dashboard for live stats.</p>
+      </details>
+
+      <details><summary>How do I withdraw?</summary>
+        <p>Withdraw directly to UPI or bank account. Minimum payout is configured in the app; payouts are processed instantly after request.</p>
+      </details>
+
+      <details><summary>Does it drain battery or data?</summary>
+        <p>The app is optimized for low battery usage. It shares only unused data (not your main active browsing). Background optimization reduces unwanted battery or data consumption.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div style="max-width:1100px; margin:0 auto;">
+      <div style="display:flex; gap:18px; align-items:center; justify-content:center; flex-wrap:wrap;">
+        <div><strong>Net2Cash</strong> • Turn data into money</div>
+      </div>
+      <div class="muted" style="margin-top:14px;">© 2025 Net2Cash • Privacy • Terms • Support</div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA (always visible while scrolling) -->
+  <div class="floating-cta" role="region" aria-label="Pay and download">
+    <span class="money">💳 Pay ₹149</span>
+    <!-- Replace href with your payment processor (Razorpay/Stripe/pay link) -->
+    <a href="#pay" title="Pay & Download"> &nbsp; &nbsp; Download App &nbsp;→</a>
+  </div>
+
+  <!-- Optional script for smooth scroll to sections -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = a.getAttribute('href');
+        if (target === '#' || target === '' || target === '#pay') {
+          // if #pay simulate link or open your payment popup (replace with real handler)
+          if (target === '#pay') {
+            // Replace with real payment flow; for now show alert
+            window.location.href = "https://rzp.io/rzp/YOUR_RAZORPAY_LINK"; // <-- change this
+          }
+          e.preventDefault();
+          return;
+        }
+        const el = document.querySelector(target);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
