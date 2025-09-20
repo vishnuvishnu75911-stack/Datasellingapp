@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net2Cash - Turn Data into Instant Payouts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header img {
+      height: 40px;
+      border-radius: 50%;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+    }
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero h1 {
+      font-size: 24px;
+      margin: 20px 0 10px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+    .cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 12px;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: #f5b400;
+      color: #000;
+    }
+    .btn-secondary {
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+    }
+    .price {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #f5b400;
+    }
+    section {
+      padding: 30px 20px;
+    }
+    section h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #f5b400;
+    }
+    section .card {
+      background: #111;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+    }
+    section .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .faq details {
+      background: #111;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .faq summary {
+      font-weight: bold;
+      color: #f5b400;
+      cursor: pointer;
+    }
+    .testimonials .card {
+      border-left: 4px solid #f5b400;
+    }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    /* Sticky bottom button */
+    .sticky-btn {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f5b400;
+      color: #000;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      z-index: 20;
+      box-shadow: 0px 0px 12px rgba(245, 180, 0, 0.7);
+      text-decoration: none;
+    }
+    /* Countdown */
+    #timer {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff4444;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="logo.png" alt="Net2Cash Logo">
+      <div>
+        <strong>Net2Cash</strong><br>
+        <small>Turn data into instant payouts</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#proof">Proof</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
 
+  <!-- Hero -->
+  <div class="hero">
+    <div style="background:#f5b400;color:#000;display:inline-block;padding:6px 14px;border-radius:20px;font-weight:bold;">
+      LAUNCH OFFER • 90% DISCOUNT
+    </div>
+    <h1>Turn your unused internet data into daily cash</h1>
+    <p>Run our secure app in the background and earn instantly. No extra effort — just set it and forget it. Instant payouts to your bank/UPI.</p>
+    
+    <!-- Cover Image -->
+    <div class="cover">
+      <img src="cover.jpg" alt="Net2Cash app preview">
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <a href="https://pages.razorpay.com/Js5F2gM" class="btn btn-primary">Pay ₹149 & Download</a>
+      <a href="#how" class="btn btn-secondary">How it works</a>
+    </div>
+    <div class="price">
+      <strike>₹1499</strike> • Now only ₹149  
+      <div id="timer">Offer ends in 2:00:00</div>
+    </div>
+  </div>
+
+  <!-- How it Works -->
+  <section id="how">
+    <h2>How it Works</h2>
+    <div class="card">
+      <h3>1️⃣ Download the App</h3>
+      <p>Get Net2Cash instantly after payment. Install it on your device in just 2 minutes.</p>
+    </div>
+    <div class="card">
+      <h3>2️⃣ Run in Background</h3>
+      <p>The app securely uses your unused internet bandwidth while you continue using your phone as normal.</p>
+    </div>
+    <div class="card">
+      <h3>3️⃣ Earn Automatically</h3>
+      <p>Your wallet balance grows daily. No effort, no tasks — 100% passive income.</p>
+    </div>
+    <div class="card">
+      <h3>4️⃣ Withdraw Instantly</h3>
+      <p>Withdraw anytime directly to UPI or Bank with 1-click. Minimum payout only ₹50.</p>
+    </div>
+  </section>
+
+  <!-- Why choose section -->
+  <section id="why">
+    <h2>Why choose Net2Cash?</h2>
+    <div class="card">
+      <h3>🔒 Secure & Private</h3>
+      <p>We never access your personal content. App only routes unused bandwidth securely and pays you for it.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Automatic Earnings</h3>
+      <p>Install once, run in background — get paid daily/weekly with low minimum payout.</p>
+    </div>
+    <div class="card">
+      <h3>💸 Stable Payouts</h3>
+      <p>Guaranteed instant withdrawals to UPI/Bank. 100% trusted by thousands of users.</p>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section id="proof">
+    <h2>Proof of Payments</h2>
+    <div class="card">
+      <h3>📲 UPI Transfers</h3>
+      <p>Thousands of successful instant transfers to users’ UPI IDs daily.</p>
+    </div>
+    <div class="card">
+      <h3>💳 Bank Deposits</h3>
+      <p>Stable payouts directly to bank accounts — verified and transparent.</p>
+    </div>
+    <div class="card">
+      <h3>📈 Active Users</h3>
+      <p>Over 10,000+ people already earning passively every single day.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What our users say</h2>
+    <div class="card">
+      <p>"I earned my first ₹5000 in just 3 days. Super easy!" – Ramesh, Delhi</p>
+    </div>
+    <div class="card">
+      <p>"Best side income app, payouts are real and instant." – Sneha, Mumbai</p>
+    </div>
+    <div class="card">
+      <p>"I thought it was fake but I’m getting daily earnings now." – Arjun, Bangalore</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>FAQ</h2>
+    <details>
+      <summary>How do I get paid?</summary>
+      <p>You can withdraw earnings instantly to UPI or Bank.</p>
+    </details>
+    <details>
+      <summary>Do you use my personal data?</summary>
+      <p>No. We only route unused bandwidth securely. Personal files and browsing remain private.</p>
+    </details>
+    <details>
+      <summary>What is the minimum payout?</summary>
+      <p>You can withdraw with as little as ₹50 in your wallet.</p>
+    </details>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://pages.razorpay.com/Js5F2gM" class="btn btn-primary">💳 Pay ₹149 & Download App →</a>
+  </footer>
+
+  <!-- Sticky button -->
+  <a href="https://pages.razorpay.com/Js5F2gM" class="sticky-btn">💳 Pay ₹149 & Download Instantly</a>
+
+  <!-- Countdown Timer Script -->
+  <script>
+    function startTimer(duration, display) {
+      let timer = duration, hours, minutes, seconds;
+      setInterval(function () {
+        hours = parseInt(timer / 3600, 10);
+        minutes = parseInt((timer % 3600) / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = "Offer ends in " + hours + ":" + minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration; // reset every 2hrs
+        }
+      }, 1000);
+    }
+    window.onload = function () {
+      const twoHours = 60 * 60 * 2; // 2 hours in seconds
+      const display = document.querySelector('#timer');
+      startTimer(twoHours, display);
+    };
+  </script>
+</body>
+</html>
