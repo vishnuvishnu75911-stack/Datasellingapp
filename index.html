@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glow Haven - Luxury Skincare</title>
+  <title>Net2Cash - Turn Data into Instant Payouts</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #000;
+      background-color: #000;
       color: #fff;
     }
     header {
@@ -33,83 +33,115 @@
     }
     .hero {
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
-
-    /* Offer Box */
-    .offer-box {
-      display: inline-block;
-      text-align: center;
+    .hero h1 {
+      font-size: 24px;
+      margin: 20px 0 10px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #ddd;
       margin-bottom: 20px;
     }
-    .offer-buttons {
+    .cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 12px;
+    }
+    .button-group {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 12px;
+      margin: 20px 0;
     }
-    .glow-btn {
-      background: linear-gradient(90deg, #f5c542, #f5a623);
-      color: #000;
-      padding: 10px 18px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 15px;
-      box-shadow: 0 0 15px rgba(245, 180, 0, 0.8);
+    .btn {
+      padding: 12px 20px;
       border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: #f5b400;
+      color: #000;
+    }
+    .btn-secondary {
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+    }
+    .price {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #f5b400;
+    }
+    section {
+      padding: 30px 20px;
+    }
+    section h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #f5b400;
+    }
+    section .card {
+      background: #111;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+    }
+    section .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .faq details {
+      background: #111;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
       cursor: pointer;
     }
-    .discount-tag {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff4444, #ff8800);
-      color: #fff;
+    .faq summary {
       font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 20px;
-      margin: 8px 0;
-      box-shadow: 0 0 15px rgba(255, 80, 0, 0.9);
+      color: #f5b400;
+      cursor: pointer;
     }
-    .offer-price {
-      font-size: 20px;
-      margin: 6px 0;
+    .testimonials .card {
+      border-left: 4px solid #f5b400;
     }
-    .offer-price strike {
-      color: #888;
-      margin-right: 6px;
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
     }
-    #timer {
-      font-size: 16px;
-      font-weight: bold;
-      color: #ffd966;
-      text-shadow: 0 0 10px rgba(255, 215, 100, 0.8);
-    }
-
-    /* Cover Image */
-    .cover img {
-      display: block;
-      width: 85%; /* smaller size */
-      max-width: 350px;
-      height: auto;
-      margin: 15px auto;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
-    }
-
-    /* Sticky Button */
+    /* Sticky bottom button */
     .sticky-btn {
       position: fixed;
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(90deg, #f5c542, #f5a623);
+      background: #f5b400;
       color: #000;
       padding: 14px 28px;
       border-radius: 50px;
       font-size: 16px;
       font-weight: bold;
       z-index: 20;
-      box-shadow: 0px 0px 12px rgba(245, 180, 0, 0.8);
+      box-shadow: 0px 0px 12px rgba(245, 180, 0, 0.7);
       text-decoration: none;
+    }
+    /* Countdown */
+    #timer {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff4444;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -117,42 +149,137 @@
   <!-- Header -->
   <header>
     <div style="display:flex;align-items:center;gap:10px;">
-      <img src="logo.png" alt="Glow Haven Logo">
+      <img src="logo.png" alt="Net2Cash Logo">
       <div>
-        <strong>Glow Haven</strong><br>
-        <small>Luxury Self-Care</small>
+        <strong>Net2Cash</strong><br>
+        <small>Turn data into instant payouts</small>
       </div>
     </div>
     <nav>
       <a href="#how">How it works</a>
       <a href="#why">Why us</a>
+      <a href="#proof">Proof</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
   <!-- Hero -->
   <div class="hero">
-    <!-- Offer Section Above Image -->
-    <div class="offer-box">
-      <div class="offer-buttons">
-        <button class="glow-btn">🔥 Limited Time Offer</button>
-        <button class="glow-btn">Buy Now</button>
-      </div>
-      <div class="offer-price">
-        <strike>₹1499</strike> <span style="color:#fff;font-weight:bold;">₹149</span>
-      </div>
-      <div class="discount-tag">🎉 Save 90% Today!</div>
-      <div id="timer">⏳ Offer ends in 2:00:00</div>
+    <div style="background:#f5b400;color:#000;display:inline-block;padding:6px 14px;border-radius:20px;font-weight:bold;">
+      LAUNCH OFFER • 90% DISCOUNT
     </div>
-
+    <h1>Turn your unused internet data into daily cash</h1>
+    <p>Run our secure app in the background and earn instantly. No extra effort — just set it and forget it. Instant payouts to your bank/UPI.</p>
+    
     <!-- Cover Image -->
     <div class="cover">
-      <img src="cover.jpg" alt="Glow Haven product preview">
+      <img src="cover.jpg" alt="Net2Cash app preview">
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <a href="https://pages.razorpay.com/Js5F2gM" class="btn btn-primary">Pay ₹50 & Download</a>
+      <a href="#how" class="btn btn-secondary">How it works</a>
+    </div>
+    <div class="price">
+      <strike>₹1499</strike> • Now only ₹50   
+      <div id="timer">Offer ends in 2:00:00</div>
     </div>
   </div>
 
-  <!-- Sticky Button -->
-  <a href="https://pages.razorpay.com/Js5F2gM" class="sticky-btn">💳 Pay ₹149 & Download Instantly</a>
+  <!-- How it Works -->
+  <section id="how">
+    <h2>How it Works</h2>
+    <div class="card">
+      <h3>1️⃣ Download the App</h3>
+      <p>Get Net2Cash instantly after payment. Install it on your device in just 2 minutes.</p>
+    </div>
+    <div class="card">
+      <h3>2️⃣ Run in Background</h3>
+      <p>The app securely uses your unused internet bandwidth while you continue using your phone as normal.</p>
+    </div>
+    <div class="card">
+      <h3>3️⃣ Earn Automatically</h3>
+      <p>Your wallet balance grows daily. No effort, no tasks — 100% passive income.</p>
+    </div>
+    <div class="card">
+      <h3>4️⃣ Withdraw Instantly</h3>
+      <p>Withdraw anytime directly to UPI or Bank with 1-click. Minimum payout only ₹50.</p>
+    </div>
+  </section>
+
+  <!-- Why choose section -->
+  <section id="why">
+    <h2>Why choose Net2Cash?</h2>
+    <div class="card">
+      <h3>🔒 Secure & Private</h3>
+      <p>We never access your personal content. App only routes unused bandwidth securely and pays you for it.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Automatic Earnings</h3>
+      <p>Install once, run in background — get paid daily/weekly with low minimum payout.</p>
+    </div>
+    <div class="card">
+      <h3>💸 Stable Payouts</h3>
+      <p>Guaranteed instant withdrawals to UPI/Bank. 100% trusted by thousands of users.</p>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section id="proof">
+    <h2>Proof of Payments</h2>
+    <div class="card">
+      <h3>📲 UPI Transfers</h3>
+      <p>Thousands of successful instant transfers to users’ UPI IDs daily.</p>
+    </div>
+    <div class="card">
+      <h3>💳 Bank Deposits</h3>
+      <p>Stable payouts directly to bank accounts — verified and transparent.</p>
+    </div>
+    <div class="card">
+      <h3>📈 Active Users</h3>
+      <p>Over 10,000+ people already earning passively every single day.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What our users say</h2>
+    <div class="card">
+      <p>"I earned my first ₹5000 in just 3 days. Super easy!" – Ramesh, Delhi</p>
+    </div>
+    <div class="card">
+      <p>"Best side income app, payouts are real and instant." – Sneha, Mumbai</p>
+    </div>
+    <div class="card">
+      <p>"I thought it was fake but I’m getting daily earnings now." – Arjun, Bangalore</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>FAQ</h2>
+    <details>
+      <summary>How do I get paid?</summary>
+      <p>You can withdraw earnings instantly to UPI or Bank.</p>
+    </details>
+    <details>
+      <summary>Do you use my personal data?</summary>
+      <p>No. We only route unused bandwidth securely. Personal files and browsing remain private.</p>
+    </details>
+    <details>
+      <summary>What is the minimum payout?</summary>
+      <p>You can withdraw with as little as ₹50 in your wallet.</p>
+    </details>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://pages.razorpay.com/Js5F2gM" class="btn btn-primary">💳 Pay ₹50 & Download App →</a>
+  </footer>
+
+  <!-- Sticky button -->
+  <a href="https://pages.razorpay.com/Js5F2gM" class="sticky-btn">💳 Pay ₹50 & Download Instantly</a>
 
   <!-- Countdown Timer Script -->
   <script>
@@ -167,15 +294,15 @@
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = "⏳ Offer ends in " + hours + "h " + minutes + "m " + seconds + "s";
+        display.textContent = "Offer ends in " + hours + ":" + minutes + ":" + seconds;
 
         if (--timer < 0) {
-          timer = duration; // reset
+          timer = duration; // reset every 2hrs
         }
       }, 1000);
     }
     window.onload = function () {
-      const twoHours = 60 * 60 * 2; // 2 hours
+      const twoHours = 60 * 60 * 2; // 2 hours in seconds
       const display = document.querySelector('#timer');
       startTimer(twoHours, display);
     };
